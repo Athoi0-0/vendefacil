@@ -1,210 +1,121 @@
-# Vende-Fácil
+# Vende-Fácil 🌾
 
-Vende-Fácil es una aplicación desarrollada para facilitar la conexión entre vendedores de productos agrícolas y compradores de alimentos del campo. Su propósito principal es actuar como intermediaria digital, permitiendo la gestión eficiente de ventas, compras, productos y usuarios dentro del ecosistema agrícola.
+![Vende-Fácil](https://img.shields.io/badge/Vende--F%C3%A1cil-Application-blue)
 
-## Índice
-- [Descripción del Proyecto](#descripción-del-proyecto)
-- [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Instalación y Configuración](#instalación-y-configuración)
-- [Inicialización del Proyecto](#inicialización-del-proyecto)
-- [Conexión a la Base de Datos PostgreSQL](#conexión-a-la-base-de-datos-postgresql)
-- [Configuración de variables de entorno](#configuración-de-variables-de-entorno)
-- [Solución a Errores Comunes](#solución-a-errores-comunes)
-- [Metodología de Trabajo](#metodología-de-trabajo)
-- [Arquitectura del Proyecto](#arquitectura-del-proyecto)
-- [Versión del Proyecto](#versión-del-proyecto)
-- [Autor e Institución](#autor-e-institución)
-- [Licencia](#licencia)
+## Introduction
 
-## Comandos Especiales de Agent Mode
+Welcome to Vende-Fácil! This application aims to bridge the gap between agricultural product sellers and food buyers. Our goal is to create a seamless connection that benefits both parties. Whether you are a farmer looking to sell your produce or a consumer seeking fresh food, Vende-Fácil is here to help.
 
-Domina estos comandos especiales para potenciar tu experiencia con Agent Mode:
+## Table of Contents
 
-- **/tools** - Muestra una lista completa de herramientas disponibles con descripciones de cada una.
-  - Ejemplo: `/tools` revela que Agent Mode puede acceder a comandos git, operaciones de terminal y extensiones de VS Code.
+1. [Features](#features)
+2. [Technologies Used](#technologies-used)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Links](#links)
 
-- **/clear** - Inicia una conversación limpia con un nuevo contexto.
-  - Ejemplo: Después de trabajar en un componente React, usa `/clear` antes de cambiar a trabajo de API backend.
+## Features
 
-- **/help [tema]** - Obtén ayuda detallada sobre funciones específicas de Agent Mode.
-  - Ejemplo: `/help file-operations` muestra todas las formas en que Agent Mode puede manipular archivos.
+- **User-Friendly Interface**: Navigate easily through our intuitive design.
+- **Real-Time Listings**: Sellers can post their products instantly.
+- **Search Functionality**: Buyers can find products quickly using filters.
+- **Secure Transactions**: We prioritize safety in every transaction.
+- **Community Feedback**: Users can leave reviews and ratings.
 
-- **/focus [carpeta]** - Restringe Agent Mode para trabajar solo con archivos en un directorio específico.
-  - Ejemplo: `/focus src/componentes` limita el contexto a esa carpeta.
+## Technologies Used
 
-- **/contexto [archivo]** - Añade archivos específicos como contexto para tu próxima solicitud.
-  - Ejemplo: `/contexto package.json` asegura que Agent Mode entienda tus dependencias.
+Vende-Fácil utilizes a variety of technologies to ensure a robust and scalable application:
 
+- **Backend**: Flask
+- **Database**: PostgreSQL
+- **Frontend**: Bootstrap, Jinja2
+- **Development Tools**: Visual Studio Code, Git, GitHub
+- **Environment Management**: dotenv (env)
+- **API Testing**: Postman
+- **Scripting**: Bash
+- **Programming Language**: Python
 
-## Descripción del Proyecto
-Vende-Fácil maneja distintos tipos de usuarios (clientes y vendedores), así como el registro de productos con sus características específicas (tipo, tamaño, precio, disponibilidad). También permite realizar ventas y compras, y relacionarlas con los productos comercializados.
+## Installation
 
-## Proyecto educativo
+To get started with Vende-Fácil, follow these steps:
 
-Este proyecto es exclusivamente para fines de aprendizaje y corresponde a un proyecto de estudios del programa Tecnólogo en Análisis y Desarrollo de Software del SENA. No debe ser utilizado en producción ni para fines comerciales.
-
-## Tecnologías Utilizadas
-### Backend
-- Python (Flask)
-- JSON
-- PostgreSQL
-- Jinja2
-- ENV o VENV
-- Postman
-
-### Frontend
-- HTML
-- CSS
-- JavaScript
-- Bootstrap
-
-### Herramientas de Desarrollo
-- Git
-- GitHub
-- Visual Studio Code
-- Copilot Pro
-- Canva
-- Creadores de UML
-
-### Sistema Operativo
-- Windows 11
-
-## Instalación y Configuración
-### Instalación de Python
-1. Descarga Python desde su [sitio oficial](https://www.python.org/downloads/).
-2. Durante la instalación, asegúrate de marcar la opción "Add Python to PATH".
-3. Verifica la instalación ejecutando:
+1. **Clone the Repository**:
    ```bash
-   python --version
-   # o
-   python3 --version
+   git clone https://github.com/Athoi0-0/vendefacil.git
    ```
 
-### Instalación de Virtualenv
-1. Instala virtualenv utilizando pip:
+2. **Navigate to the Directory**:
    ```bash
-   pip install virtualenv
+   cd vendefacil
    ```
-2. Crea un entorno virtual con Python 3:
+
+3. **Set Up a Virtual Environment**:
    ```bash
-   python -m virtualenv venv
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
-3. Activa el entorno virtual:
-   - En Windows (Git Bash):
-     ```bash
-     source venv/Scripts/activate
-     ```
-   - En Windows (PowerShell o CMD):
-     ```bash
-     .\venv\Scripts\activate
-     ```
-   - En Linux/Mac:
-     ```bash
-     source venv/bin/activate
-     ```
-4. Verifica si el entorno virtual está activo:
-   - En Bash:
-     ```bash
-     echo $VIRTUAL_ENV
-     ```
-   - En PowerShell:
-     ```powershell
-     $env:VIRTUAL_ENV
-     ```
 
-### Instalación de Flask y Herramientas Adicionales
-Asegúrate de estar dentro del entorno virtual antes de ejecutar estos comandos:
-```bash
-pip install flask setuptools wheel
-pip install flask-cors
-pip install python-decouple
-pip install python-dotenv
-```
-
-> **Nota:** Para retornar respuestas en formato JSON en tus rutas, debes importar `jsonify` desde Flask:
-> ```python
-> from flask import jsonify
-> ```
-
-### Dependencias Adicionales
-Para conectar la aplicación con PostgreSQL:
-```bash
-pip install psycopg2
-# o para evitar problemas de compilación
-pip install psycopg2-binary
-```
-
-## Inicialización del Proyecto
-1. Asegúrate de estar en la carpeta raíz del proyecto.
-2. Ejecuta el siguiente comando para iniciar el servidor Flask:
+4. **Install Dependencies**:
    ```bash
-   py ./src/utils/app.py
+   pip install -r requirements.txt
    ```
-3. Abre tu navegador y visita [http://127.0.0.1:5000](http://127.0.0.1:5000) para verificar que el servidor esté corriendo.
 
-## Conexión a la Base de Datos PostgreSQL
-- Host: localhost
-- Usuario: postgres
-- Contraseña: 1234
-- Base de datos: VendeFacil
-- Puerto: 5432
+5. **Set Up the Database**:
+   Configure your PostgreSQL database and update the connection settings in your `.env` file.
 
-La conexión se realiza usando SQLAlchemy y psycopg2. Ejemplo de configuración en `app.py`:
-```python
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost:5432/VendeFacil'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-```
-Para verificar la conexión, ejecuta:
-```bash
-python src/conexion_postgresql.py
-```
+6. **Run the Application**:
+   ```bash
+   flask run
+   ```
 
-## Configuración de variables de entorno
+## Usage
 
-Antes de ejecutar la aplicación, debes crear una carpeta llamada `.env` en la raíz del proyecto. Dentro de esta carpeta, crea un archivo para definir las variables de entorno necesarias para la conexión a la base de datos y la seguridad de la aplicación. Ejemplo de variables que debes agregar:
+Once the application is running, you can access it at `http://127.0.0.1:5000`. 
 
-```
-SECRET_KEY=tu_clave_secreta
-PGSQL_HOST=localhost
-PGSQL_USER=postgres
-PGSQL_PASSWORD=tu_contraseña
-PGSQL_DATABASE=VendeFacil
-```
+### Seller Instructions
 
-Asegúrate de no compartir este archivo ni sus datos sensibles en repositorios públicos.
+1. **Create an Account**: Sign up to start listing your products.
+2. **Post Products**: Use the "Add Product" feature to list your agricultural goods.
+3. **Manage Listings**: Edit or delete your products as needed.
 
-## Solución a Errores Comunes
-- Verifica las rutas en el navegador.
-- Cierra y abre Visual Studio Code si los cambios no se reflejan.
-- Actualiza la página web con Ctrl + F5.
-- Reinicia el servidor local si es necesario.
-- Cierra y abre una nueva terminal si el entorno virtual no funciona correctamente.
+### Buyer Instructions
 
-## Metodología de Trabajo
-Este proyecto utiliza la metodología **Kanban** para la gestión y organización de tareas. Kanban permite visualizar el flujo de trabajo, identificar cuellos de botella y mejorar la eficiencia del equipo.
+1. **Browse Products**: Use the search bar to find what you need.
+2. **Contact Sellers**: Reach out directly to sellers for inquiries.
+3. **Leave Feedback**: Rate your experience after purchases.
 
-## Arquitectura del Proyecto
-El proyecto utiliza una arquitectura MVC (Modelo-Vista-Controlador):
+## Contributing
 
-- El **Modelo (Model)** gestiona la lógica de datos y la conexión a la base de datos (por ejemplo, archivos como `src/conexion_postgresql.py`).
-- La **Vista (View)** corresponde a la interfaz de usuario, ubicada en la carpeta `templates/` con archivos HTML.
-- La **Controlador (Controller)** maneja la lógica de la aplicación y las rutas, como en `app.py`.
+We welcome contributions! If you would like to contribute to Vende-Fácil, please follow these steps:
 
-Esta arquitectura permite separar responsabilidades, facilitando el mantenimiento y la escalabilidad del proyecto.
+1. **Fork the Repository**: Click on the "Fork" button at the top right of the page.
+2. **Create a New Branch**:
+   ```bash
+   git checkout -b feature/YourFeatureName
+   ```
+3. **Make Your Changes**: Implement your feature or fix.
+4. **Commit Your Changes**:
+   ```bash
+   git commit -m "Add Your Feature Description"
+   ```
+5. **Push to Your Fork**:
+   ```bash
+   git push origin feature/YourFeatureName
+   ```
+6. **Open a Pull Request**: Go to the original repository and click "New Pull Request".
 
-## Versión del Proyecto
-Actualmente en la versión **0.0.1** (etapa temprana de desarrollo). Se sigue el esquema de versionado semántico.
+## License
 
-## Autor e Institución
-- **Autor:** Milton Figueredo ([LinkedIn](#) | [GitHub](#))
-- **Institución:** SENA - Servicio Nacional de Aprendizaje
-- **Programa:** Tecnólogo en Análisis y Desarrollo de Software
-- **Fecha:** Mayo 2025
+Vende-Fácil is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-## Licencia
-Este proyecto está licenciado bajo la Licencia MIT.
+## Links
 
----
+To download the latest version of Vende-Fácil, visit our [Releases page](https://github.com/Athoi0-0/vendefacil/releases). You can find the necessary files to download and execute the application there.
 
-© 2025 Milton Figueredo
+For more updates and releases, check our [Releases section](https://github.com/Athoi0-0/vendefacil/releases) regularly.
 
+## Conclusion
+
+Thank you for checking out Vende-Fácil! We hope this application makes it easier for sellers and buyers to connect. If you have any questions or feedback, feel free to reach out. Happy selling and buying!
